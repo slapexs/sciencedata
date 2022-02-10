@@ -18,7 +18,7 @@ while ($row = mysqli_fetch_array($query)) {
             <tr class="text-center">
                 <!-- Generate columns -->
                 <?php for ($i = 1; $i <= 18; $i++) { ?>
-                    <th class="align-middle" scope="col" width="5.55%"><?= $i; ?></th>
+                    <th class="align-middle" width="5.55%"><?= $i; ?></th>
                 <?php } ?>
             </tr>
         </thead>
@@ -40,16 +40,16 @@ while ($row = mysqli_fetch_array($query)) {
                 <tr>
                     <?php for ($i = 1; $i <= 18; $i++) {
                     ?>
-                        <td>
+                        <td width="5.55%">
                             <?php for ($j = 0; $j < count($index[$r]); $j++) {
                                 if ($i == $index[$r][$j]) {
                                     $count++;
                                     $index_count++;
-                                    if ($index_count != 57 && $index_count != 75) { ?>
-                                        <small class="text-muted"><?= $count; ?></small> <span class="text-danger">(<?= $data[$count - 1]['Symbol']; ?>)</span><br>
-                                        <?= $data[$count - 1]['ElementName']; ?> <br>
-                                        <small><?= $data[$count - 1]['AtomicWeight']; ?> </small><br>
-                            <?php  }
+                                    //if ($index_count != 57 && $index_count != 75) { ?>
+                                       <small class="text-muted"><?= $count; ?></small> <span class="text-danger">(<?= $data[$count - 1]['Symbol']; ?>)</span><br>
+                                        <span><?= $data[$count - 1]['ElementName']; ?></span><br>
+                                        <small><?= $data[$count - 1]['AtomicWeight']; ?> </small>
+                            <?php  //}
 
                                     if ($index_count == 57) {
                                         $count += 14;
@@ -74,7 +74,7 @@ while ($row = mysqli_fetch_array($query)) {
         <tbody>
             <tr>
                 <?php for ($i = 54; $i <= 71; $i++) { ?>
-                    <?php if ($i < 57) { ?>
+                    <?php if ($i < 58) { ?>
                         <td width="5.55%"></td>
                     <?php } else { ?>
                         <td width="5.55%">
@@ -88,7 +88,7 @@ while ($row = mysqli_fetch_array($query)) {
 
             <tr>
                 <?php for ($i = 86; $i <= 103; $i++) { ?>
-                    <?php if ($i < 89) { ?>
+                    <?php if ($i < 90) { ?>
                         <td width="5.55%"></td>
                     <?php } else { ?>
                         <td width="5.55%">
