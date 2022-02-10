@@ -40,9 +40,9 @@ $lab = $_GET['lab'];
     </div>
   <?php } ?>
   <!-- <div id="content" class="container mt-3"></div> -->
-  <div class="container mt-5">
+  <div class="<?= ($lab == 3 ? 'container-fluid' : 'container') ?> mt-5">
     <?php
-    if (isset($lab)){
+    if (isset($lab)) {
       include_once("./pages/lab$lab.php");
     }
     ?>
