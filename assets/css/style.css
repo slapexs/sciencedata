@@ -9,3 +9,6 @@ body {
   background-color: #f1f0f0;
   font-family: "Prompt", sans-serif;
 }
+.text-tiny {
+  font-size: 8px;
+}
