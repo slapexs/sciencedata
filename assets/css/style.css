@@ -12,3 +12,14 @@ body {
 .text-tiny {
   font-size: 8px;
 }
+.openmodal_viewelement {
+  transition: 0.3s;
+  background: rgba(255,255,255,0);
+}
+
+.openmodal_viewelement:hover {
+  transition: 0.3s;
+  cursor: pointer;
+  background: rgba(255,255,255,100);
+  transform: scale(1.3);
+}
