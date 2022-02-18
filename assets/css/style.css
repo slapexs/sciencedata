@@ -14,12 +14,52 @@ body {
 }
 .openmodal_viewelement {
   transition: 0.3s;
-  background: rgba(255,255,255,0);
+  background: rgba(255, 255, 255, 0);
 }
 
 .openmodal_viewelement:hover {
   transition: 0.3s;
   cursor: pointer;
-  background: rgba(255,255,255,100);
+  background: rgba(255, 255, 255, 100);
   transform: scale(1.3);
+}
+
+.elem_green {
+  background-color: #a2ffa1;
+}
+
+.elem_blue {
+  background-color: #c0ffff;
+}
+
+.elem_pink {
+  background-color: #ff9d9d;
+}
+
+.elem_orange {
+  background-color: #ffdead;
+}
+
+.elem_litepink {
+  background-color: #ffc0c0;
+}
+
+.elem_darkgreen {
+  background-color: #cccc99;
+}
+
+.elem_grey {
+  background-color: #cccccc;
+}
+
+.elem_yellow {
+  background-color: #ffff99;
+}
+
+.elem_purple {
+  background-color: #ffbfff;
+}
+
+.elem_darkpink {
+  background-color: #ff99cc;
 }
