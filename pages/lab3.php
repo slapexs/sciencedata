@@ -95,7 +95,7 @@ while ($row = mysqli_fetch_array($query)) {
                         <td width="5.5%"></td>
                     <?php } else { ?>
                         <td width="5.5%">
-                        <div class="openmodal_viewelement rounded elem_purple" onclick="modalViewElement(['<?= $data[$i - 1]['Pid']; ?>','<?= $data[$i - 1]['AtomicWeight']; ?>','<?= $data[$i - 1]['ElementName']; ?>','<?= $data[$i - 1]['Symbol']; ?>','<?= $data[$i - 1]['MeltingPoint']; ?>','<?= $data[$i - 1]['BoilingPoint']; ?>','<?= $data[$i - 1]['Density']; ?>','<?= $data[$i - 1]['Discover']; ?>','<?= $data[$i - 1]['Groups']; ?>','<?= $data[$i - 1]['ElectronConfiguration']; ?>','<?= $data[$i - 1]['IonizationEnergy']; ?>'])">
+                        <div class="openmodal_viewelement  elem_purple" onclick="modalViewElement(['<?= $data[$i - 1]['Pid']; ?>','<?= $data[$i - 1]['AtomicWeight']; ?>','<?= $data[$i - 1]['ElementName']; ?>','<?= $data[$i - 1]['Symbol']; ?>','<?= $data[$i - 1]['MeltingPoint']; ?>','<?= $data[$i - 1]['BoilingPoint']; ?>','<?= $data[$i - 1]['Density']; ?>','<?= $data[$i - 1]['Discover']; ?>','<?= $data[$i - 1]['Groups']; ?>','<?= $data[$i - 1]['ElectronConfiguration']; ?>','<?= $data[$i - 1]['IonizationEnergy']; ?>'])">
                         <small class="text-muted float-right"><?= $i; ?></small>
                             <h5 class="mb-0"><?= $data[$i - 1]['Symbol']; ?></h5>
                             <p class="text-tiny mb-0"><span><?= $data[$i - 1]['ElementName']; ?></span></p>
@@ -113,7 +113,7 @@ while ($row = mysqli_fetch_array($query)) {
                         <td width="5.5%"></td>
                     <?php } else { ?>
                         <td width="5.5%" >
-                        <div class="openmodal_viewelement rounded elem_darkpink" onclick="modalViewElement(['<?= $data[$i - 1]['Pid']; ?>','<?= $data[$i - 1]['AtomicWeight']; ?>','<?= $data[$i - 1]['ElementName']; ?>','<?= $data[$i - 1]['Symbol']; ?>','<?= $data[$i - 1]['MeltingPoint']; ?>','<?= $data[$i - 1]['BoilingPoint']; ?>','<?= $data[$i - 1]['Density']; ?>','<?= $data[$i - 1]['Discover']; ?>','<?= $data[$i - 1]['Groups']; ?>','<?= $data[$i - 1]['ElectronConfiguration']; ?>','<?= $data[$i - 1]['IonizationEnergy']; ?>'])">
+                        <div class="openmodal_viewelement  elem_darkpink" onclick="modalViewElement(['<?= $data[$i - 1]['Pid']; ?>','<?= $data[$i - 1]['AtomicWeight']; ?>','<?= $data[$i - 1]['ElementName']; ?>','<?= $data[$i - 1]['Symbol']; ?>','<?= $data[$i - 1]['MeltingPoint']; ?>','<?= $data[$i - 1]['BoilingPoint']; ?>','<?= $data[$i - 1]['Density']; ?>','<?= $data[$i - 1]['Discover']; ?>','<?= $data[$i - 1]['Groups']; ?>','<?= $data[$i - 1]['ElectronConfiguration']; ?>','<?= $data[$i - 1]['IonizationEnergy']; ?>'])">
                         <small class="text-muted float-right"><?= $i; ?></small>
                             <h5 class="mb-0"><?= $data[$i - 1]['Symbol']; ?></h5>
                             <p class="text-tiny mb-0"><span><?= $data[$i - 1]['ElementName']; ?></span></p>
