@@ -12,7 +12,15 @@ while ($row = mysqli_fetch_array($query)) {
 <h4>โปรแกรมตารางธาตุ</h4>
 
 <hr>
-
+<div class="bg-light rounded p-3 mb-2 text-center">
+    <p>การแบ่งกลุ่มของตารางธาตุ</p>
+    <h5>
+        <span class="badge badge-lg metal">โลหะ</span>
+        <span class="badge semi-metal">กึ่งโลหะ</span>
+        <span class="badge non-metal">อโลหะ</span>
+    </h5>
+    
+</div>
 <div class="table-responsive">
     <table class="table table-sm">
         <thead class="thead-dark">
