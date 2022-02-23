@@ -44,6 +44,8 @@ while ($row = mysqli_fetch_array($query)) {
                 ['elem_pink', 'elem_orange', 'elem_purple', 'elem_litepink', 'elem_litepink', 'elem_litepink', 'elem_litepink', 'elem_litepink', 'elem_litepink', 'elem_litepink', 'elem_litepink', 'elem_litepink','elem_grey', 'elem_grey', 'elem_grey', 'elem_grey', 'elem_yellow', 'elem_blue'],
                 ['elem_pink', 'elem_orange', 'elem_darkpink', 'elem_litepink', 'elem_litepink', 'elem_litepink', 'elem_litepink', 'elem_litepink', 'elem_litepink', 'elem_litepink', 'elem_litepink', 'elem_litepink','elem_grey', 'elem_grey', 'elem_grey', 'elem_grey', 'elem_yellow', 'elem_blue'],
             ];
+
+            $rounded_border = [5,14,33,52];
             $count = 0;
             $index_count = 0;
             for ($r = 0; $r <= 6; $r++) {
@@ -58,7 +60,7 @@ while ($row = mysqli_fetch_array($query)) {
                                     $index_count++;
                                     //if ($index_count != 57 && $index_count != 75) { 
                             ?>
-                                    <div class="openmodal_viewelement rounded <?= $colors[$r][$j] ?>" onclick="modalViewElement(['<?= $data[$count - 1]['Pid']; ?>','<?= $data[$count - 1]['AtomicWeight']; ?>','<?= $data[$count - 1]['ElementName']; ?>','<?= $data[$count - 1]['Symbol']; ?>','<?= $data[$count - 1]['MeltingPoint']; ?>','<?= $data[$count - 1]['BoilingPoint']; ?>','<?= $data[$count - 1]['Density']; ?>','<?= $data[$count - 1]['Discover']; ?>','<?= $data[$count - 1]['Groups']; ?>','<?= $data[$count - 1]['ElectronConfiguration']; ?>','<?= $data[$count - 1]['IonizationEnergy']; ?>'])">
+                                    <div class="openmodal_viewelement  <?= (in_array($count, $rounded_border) ? 'rounded border_elem' : '')  ?> <?= $colors[$r][$j] ?>" onclick="modalViewElement(['<?= $data[$count - 1]['Pid']; ?>','<?= $data[$count - 1]['AtomicWeight']; ?>','<?= $data[$count - 1]['ElementName']; ?>','<?= $data[$count - 1]['Symbol']; ?>','<?= $data[$count - 1]['MeltingPoint']; ?>','<?= $data[$count - 1]['BoilingPoint']; ?>','<?= $data[$count - 1]['Density']; ?>','<?= $data[$count - 1]['Discover']; ?>','<?= $data[$count - 1]['Groups']; ?>','<?= $data[$count - 1]['ElectronConfiguration']; ?>','<?= $data[$count - 1]['IonizationEnergy']; ?>'])">
                                         <small class="text-muted float-right"><?= $count; ?></small>
                                         <h5 class="mb-0"><?= $data[$count - 1]['Symbol']; ?></h5>
                                         <p class="text-tiny mb-0"><span><?= $data[$count - 1]['ElementName']; ?></span></p>
@@ -116,7 +118,6 @@ while ($row = mysqli_fetch_array($query)) {
                             <h5 class="mb-0"><?= $data[$i - 1]['Symbol']; ?></h5>
                             <p class="text-tiny mb-0"><span><?= $data[$i - 1]['ElementName']; ?></span></p>
                             <p class="text-tiny mb-0"><?= $data[$i - 1]['AtomicWeight']; ?> </p>
-
                         </div>
                         </td>
                     <?php } ?>
