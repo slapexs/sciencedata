@@ -24,44 +24,15 @@ body {
   transform: scale(1.1);
 }
 
-.elem_green {
-  background-color: #a2ffa1;
+.metal{
+  background-color: #bcffbb;
 }
-
-.elem_blue {
-  background-color: #c0ffff;
-}
-
-.elem_pink {
-  background-color: #ff9d9d;
-}
-
-.elem_orange {
+.semi-metal{
   background-color: #ffdead;
 }
 
-.elem_litepink {
-  background-color: #ffc0c0;
-}
-
-.elem_darkgreen {
-  background-color: #cccc99;
-}
-
-.elem_grey {
-  background-color: #cccccc;
-}
-
-.elem_yellow {
-  background-color: #ffff99;
-}
-
-.elem_purple {
-  background-color: #ffbfff;
-}
-
-.elem_darkpink {
-  background-color: #ff99cc;
+.non-metal{
+  background-color: #c0ffff;
 }
 
 .border_elem {
