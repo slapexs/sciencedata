@@ -31,3 +31,46 @@ function modalViewElement(data) {
   $("#elem_IonizationEnergy").html(list[10]);
   $("#modal_viewelement").modal("show");
 }
+
+// Get dat alab4
+$("#cal_element").submit((e) => {
+  e.preventDefault();
+  const form_data = $("#find_elements").val();
+  $.ajax({
+    url: "./backend/function.php",
+    type: "post",
+    data: {
+      findelem: form_data,
+    },
+    dataType: "json",
+    success: (res) => {
+      if (res.data) {
+        $("#lab4_error").removeClass("d-none");
+        $("#find_elements").addClass("is-invalid");
+      } else {
+        $("#lab4_error").addClass("d-none");
+        if ($("#find_elements").hasClass("is-invalid")) {
+          $("#find_elements").removeClass("is-invalid");
+        }
+        $("#list_elements").removeClass("text-muted");
+        $("#element_value").addClass("text-primary");
+        $("#list_elements").html("");
+        $("#element_value").html(res.sum.toFixed(4));
+        // $("#list_elements").html(res.list_elements);
+        const list_elements = res.list_elements;
+        const regex = /[0-9]/;
+        for (let i = 0; i < list_elements.length; i++) {
+          if (!isNaN(list_elements[i + 1])) {
+            let element = `${list_elements[i]}<sub>${
+              list_elements[i + 1]
+            }</sub>`;
+            $("#list_elements").append(`<span>${element}</span>`);
+          } else if (isNaN(list_elements[i])) {
+            $("#list_elements").append(`<span>${list_elements[i]}</span>`);
+          }
+        }
+      }
+    },
+    error: (err) => console.log(err),
+  });
+});

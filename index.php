@@ -32,11 +32,16 @@ $lab = $_GET['lab'];
   <?php include_once('./components/navbar.php'); ?>
 
   <?php if (!isset($lab)) { ?>
-    <div class="container mt-5" id="super">
-      <h1 class="display-3 text-uppercase animate__fadeInDown animate__animated animate__faster animate__delay-1s">Scientific Information for Computer Science</h1>
-      <p class="text-muted animate__fadeInDown animate__animated animate__delay-2s animate__faster">
-        ข้อมูลเชิงวิทยาศาสตร์สำหรับวิทยาการคอมพิวเตอร์ (BSCCS102)
-      </p>
+    <div class="container mt-5 text-center" id="super">
+      <div class="">
+        <h1 class="text-uppercase animate__fadeInDown animate__animated animate__faster animate__delay-1s">Scientific Information for Computer Science</h1>
+        <p class="text-muted animate__fadeInDown animate__animated animate__delay-2s animate__faster">
+          ข้อมูลเชิงวิทยาศาสตร์สำหรับวิทยาการคอมพิวเตอร์ (BSCCS102)
+        </p>
+        <small class="text-muted animate__fadeInDown animate__animated animate__delay-2s">
+          นายทินกฤต สิงห์แก้ว - 64342205007-7
+        </small>
+      </div>
     </div>
   <?php } ?>
   <!-- <div id="content" class="container mt-3"></div> -->
@@ -51,7 +56,7 @@ $lab = $_GET['lab'];
   <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
   <!-- External js -->
   <script src="./assets/js/main.js"></script>
 </body>
