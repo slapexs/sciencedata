@@ -70,6 +70,7 @@ if (isset($_POST['findelem'])) {
     }
 
     $sum = 0;
+    $value_elements = [];
     for ($i = 0; $i < count($arr_elem); $i++) {
         if (preg_match($regex_upper, $arr_elem[$i])) {
             if (preg_match($regex_number, $arr_elem[$i + 1])) {
@@ -79,6 +80,7 @@ if (isset($_POST['findelem'])) {
                 $row = mysqli_fetch_assoc($query);
                 $elem_value = $row['AtomicWeight'] * $arr_elem[$i + 1];
                 $sum += $elem_value;
+                array_push($value_elements, $elem_value);
             } else {
                 $element_name = $arr_elem[$i];
                 $sql = "SELECT * FROM periordictable WHERE Symbol = '$element_name'";
@@ -86,10 +88,11 @@ if (isset($_POST['findelem'])) {
                 $row = mysqli_fetch_assoc($query);
                 $elem_value = $row['AtomicWeight'] * 1;
                 $sum += $elem_value;
+                array_push($value_elements, $elem_value);
             }
         }
     }
     
-    $response = ['data' => $isError, 'element_set' => $del_space, 'sum' => $sum, 'list_elements' => $arr_elem];
+    $response = ['data' => $isError, 'element_set' => $del_space, 'sum' => $sum, 'list_elements' => $arr_elem, 'value_elem' => $value_elements];
     echo json_encode($response);
 }

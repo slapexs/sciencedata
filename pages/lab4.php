@@ -15,7 +15,7 @@
 
                     <div class="col-auto">
                         <button class="btn btn-primary" type="submit" name="search_element">คำนวณ</button>
-                        <button class="btn btn-outline-dark" type="reset">ล้างค่า</button>
+                        <button class="btn btn-outline-dark" type="reset" onclick="clearDisplay()">ล้างค่า</button>
                     </div>
                 </div>
             </form>
@@ -24,10 +24,22 @@
 
     <div class="col-lg-6">
         <div class="bg-light rounded p-3">
-            <h5 class="text-center">ผลลัพธ์</h5>
+            <p class="text-muted">น้ำหนักโมเลกุล</p>
             <div class="mt-4">
-            <h3 id="list_elements" class="text-center text-muted">ไม่มีข้อมูล</h3>
-            <h1 class="text-center" id="element_value">0</h1>
+                <div class="row">
+                    <div class="col">
+                        <h5 id="elements"></h5>
+                    </div>
+                    <div class="col-auto">
+                        <h1 class="text-center text-primary" id="element_value">0</h1>
+                    </div>
+                </div>
+            <hr>
+            <div class="text-centers">
+            <p class="text-muted">ธาตุและน้ำหนัก</p>
+            <h5 id="list_elements" class="text-muted"></h5>
+            <p id="value_elements"></p>
+            </div>
             </div>
         </div>
     </div>
