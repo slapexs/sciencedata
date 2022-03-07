@@ -29,18 +29,26 @@ $lab = $_GET['lab'];
 </head>
 
 <body>
-  <?php include_once('./components/navbar.php'); ?>
+  <?php ($lab != "" ? include_once('./components/navbar.php') : ""); ?>
 
   <?php if (!isset($lab)) { ?>
-    <div class="container mt-5 text-center" id="super">
-      <div class="">
-        <h1 class="text-uppercase animate__fadeInDown animate__animated animate__faster animate__delay-1s">Scientific Information for Computer Science</h1>
-        <p class="text-muted animate__fadeInDown animate__animated animate__delay-2s animate__faster">
-          ข้อมูลเชิงวิทยาศาสตร์สำหรับวิทยาการคอมพิวเตอร์ (BSCCS102)
-        </p>
-        <small class="text-muted animate__fadeInDown animate__animated animate__delay-2s">
-          นายทินกฤต สิงห์แก้ว - 64342205007-7
-        </small>
+    <div class="container" id="super">
+      <div class="d-flex vh-100 align-items-center justify-content-center">
+        <div class="">
+          <div class="d-flex align-items-end animate__fadeInDown animate__animated ">
+            <img src="https://webs.rmutl.ac.th/assets/upload/files/2018/11/20181114113020_50956.png" class="img-fluid" width="64" alt="">
+            <h5 class=""> มหาวิทยาลัยเทคโนโลยีราชมงคลล้านนา (น่าน)</h5>
+          </div>
+          <h1 class="text-uppercase animate__fadeInDown animate__animated ">Scientific Information for Computer Science</h1>
+          <p class="text-muted animate__fadeInDown animate__animated animate__delay-1s animate__faster mb-0">
+            ข้อมูลเชิงวิทยาศาสตร์สำหรับวิทยาการคอมพิวเตอร์ (BSCCS102)
+          </p>
+          <p class="text-muted animate__fadeInDown animate__animated animate__delay-1s animate__faster">
+            โดย นายทินกฤต สิงห์แก้ว (64342205007-7) - วิทยาการคอมพิวเตอร์ ปี1 (เทียบโอน)
+          </p>
+
+          <a href="./?lab=1" class="btn btn-outline-danger animate__fadeInDown animate__animated animate__delay-2s animate__faster">เข้าชมเว็บไซต์</a>
+        </div>
       </div>
     </div>
   <?php } ?>
