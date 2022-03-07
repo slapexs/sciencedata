@@ -18,7 +18,7 @@ if (isset($_POST['searchdata'])) {
         $iserror = true;
         echo "<script>
       alert('ไม่พบข้อมูล');
-      window.location.href = './program2.php';
+      window.location.href = './?lab=2';
       </script>";
     }
 }
