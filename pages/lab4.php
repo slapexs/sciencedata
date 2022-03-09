@@ -15,7 +15,7 @@
 
                     <div class="col-auto">
                         <button class="btn btn-primary" type="submit" name="search_element">คำนวณ</button>
-                        <button class="btn btn-outline-dark" type="reset" onclick="clearDisplay()">ล้างค่า</button>
+                        <button class="btn btn-outline-dark" type="reset">ล้างค่า</button>
                     </div>
                 </div>
             </form>
@@ -28,17 +28,44 @@
             <div class="mt-4">
                 <div class="row">
                     <div class="col">
-                        <h5 id="elements"></h5>
+                        <h5 id="elements"><?= ($result_elem != "" ? $result_elem : "-") ?></h5>
                     </div>
                     <div class="col-auto">
-                        <h1 class="text-center text-primary" id="element_value">0</h1>
+                        <h1 class="text-center text-primary" id="element_value"><?= ($sum > 0 ? $sum : "0") ?></h1>
                     </div>
                 </div>
             <hr>
             <div class="text-centers">
             <p class="text-muted">ธาตุและน้ำหนัก</p>
-            <h5 id="list_elements" class="text-muted"></h5>
-            <p id="value_elements"></p>
+            <h5 id="list_elements">
+                <?php
+                    for ($i=0; $i<count($temp_elem); $i++){
+                        if ($value_elem[$i] == 0){
+                            echo "<small class='text-danger'>ไม่พบธาตุ".$temp_elem[$i]."</small>";
+                        }else{
+                            echo $temp_elem[$i];
+                        }
+                        if ($i != count($temp_elem)-1){
+                            echo "<span class='mx-1'>+</span>";
+                        }
+                    }
+                ?>
+            </h5>
+            <p id="value_elements">
+            <?php
+                    for ($i=0; $i<count($value_elem); $i++){
+                        if ($value_elem[$i] > 0){
+                            echo $value_elem[$i];
+                        }else {
+                            echo "<span class='text-danger'>0</span>";
+                        }
+                        if ($i != count($value_elem)-1){
+                            echo "<span class='mx-1'>+</span>";
+                        }
+                        
+                    }
+                ?>
+            </p>
             </div>
             </div>
         </div>

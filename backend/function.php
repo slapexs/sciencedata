@@ -6,8 +6,8 @@ if (isset($_POST['searchdata'])) {
     $category = $_POST['category'];
     $searchbox = $_POST['searchbox'];
 
-        $sql = "SELECT * FROM periordictable WHERE $category = '$searchbox'";
-    
+    $sql = "SELECT * FROM periordictable WHERE $category = '$searchbox'";
+
     $query = mysqli_query($conn, $sql);
     $count = mysqli_num_rows($query);
 
@@ -27,10 +27,9 @@ if (isset($_POST['searchdata'])) {
 // Lab4 Search element and calculate atomicweight
 $isError = false;
 
-if (isset($_POST['findelem'])) {
-    include_once('./dbconnect.php');
+if (isset($_POST['search_element'])) {
 
-    $elem = $_POST['findelem'];
+    $elem = $_POST['find_elements'];
     // $elem = "H2ONa2 C3Co";
     // Check regex a
     $regex1 = "/^[a-z0-9ก-ฮ]/";
@@ -60,7 +59,7 @@ if (isset($_POST['findelem'])) {
 
     $replace3 = ",$0";
     $ref3 = preg_replace($regex_upper, $replace3, $ref2);
-    
+
 
     $cutcomma = explode(",", $ref3);
     foreach ($cutcomma as $key => $value) {
@@ -69,30 +68,50 @@ if (isset($_POST['findelem'])) {
         }
     }
 
+    // ดึงข้อมูลน้ำหนักอะตอมจากฐานข้อมูล
+    $data_elem = [];
+    // รวมธาตุใส่ Array ใหม่
+    $temp_elem = [];
+    $result_elem = [];
+    $value_elem = [];
     $sum = 0;
-    $value_elements = [];
+    $bad_elems = "";
     for ($i = 0; $i < count($arr_elem); $i++) {
         if (preg_match($regex_upper, $arr_elem[$i])) {
             if (preg_match($regex_number, $arr_elem[$i + 1])) {
-                $element_name = $arr_elem[$i];
-                $sql = "SELECT * FROM periordictable WHERE Symbol = '$element_name'";
-                $query = mysqli_query($conn, $sql);
-                $row = mysqli_fetch_assoc($query);
-                $elem_value = $row['AtomicWeight'] * $arr_elem[$i + 1];
-                $sum += $elem_value;
-                array_push($value_elements, $elem_value);
+                $getelem = "SELECT * FROM periordictable WHERE Symbol = '$arr_elem[$i]'";
+                $qgetelem = mysqli_query($conn, $getelem);
+                $rgetelem = mysqli_fetch_assoc($qgetelem);
+                if (mysqli_num_rows($qgetelem) > 0){
+                        $elems = $arr_elem[$i]."<sub>".$arr_elem[$i+1]."</sub>";
+                        array_push($value_elem, $rgetelem['AtomicWeight']*$arr_elem[$i + 1]);
+                    }else{
+                        $elems = '<small class="text-danger">'.$arr_elem[$i]."<sub>".$arr_elem[$i+1].'</sub></small>';
+                        array_push($value_elem, 0);
+
+                    }
+
             } else {
-                $element_name = $arr_elem[$i];
-                $sql = "SELECT * FROM periordictable WHERE Symbol = '$element_name'";
-                $query = mysqli_query($conn, $sql);
-                $row = mysqli_fetch_assoc($query);
-                $elem_value = $row['AtomicWeight'] * 1;
-                $sum += $elem_value;
-                array_push($value_elements, $elem_value);
+                $elems = $arr_elem[$i];
+                $getelem = "SELECT * FROM periordictable WHERE Symbol = '$arr_elem[$i]'";
+                $qgetelem = mysqli_query($conn, $getelem);
+                $rgetelem = mysqli_fetch_assoc($qgetelem);
+                    if (mysqli_num_rows($qgetelem) > 0){
+                        array_push($value_elem, $rgetelem['AtomicWeight']);
+                    }else{
+                        $elems = '<span class="text-danger">'.$arr_elem[$i].'</span>';
+                        $bad_elems = '<small class="text-danger">ไม่พบธาตุ'.$arr_elem[$i].'</small>';
+                        array_push($value_elem, 0);
+                    }
             }
+            array_push($temp_elem, $elems);
+            
         }
     }
-    
-    $response = ['data' => $isError, 'element_set' => $del_space, 'sum' => $sum, 'list_elements' => $arr_elem, 'value_elem' => $value_elements];
-    echo json_encode($response);
+
+    $result_elem = implode("", $temp_elem);
+    // Sum element value
+    foreach ($value_elem as $key => $value) {
+        $sum += $value;
+    }
 }
